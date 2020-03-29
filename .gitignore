@@ -1,0 +1,10 @@
+# Deps & build
+node_modules
+dist
+
+# Envs
+.env
+
+# Text editors & IDEs
+.vscode
+.idea

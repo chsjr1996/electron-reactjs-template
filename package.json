@@ -1,0 +1,52 @@
+{
+  "name": "electron-reactjs-template",
+  "version": "0.0.1",
+  "description": "Electron Electron app template with Typescript and ReactJS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --names 'webpack,electron:compile' --prefix name 'yarn dev:webpack' 'yarn dev:electron:compile'",
+    "dev:webpack": "webpack-dev-server --color --config ./webpack.dev.config.js",
+    "dev:electron:compile": "tsc -p tsconfig.browser.json && yarn dev:electron:run",
+    "dev:electron:run": "wait-on http://localhost:8080 && node --require 'dotenv/config' scripts/start-dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chsjr1996/electron-reacjs-template.git"
+  },
+  "keywords": [
+    "electron",
+    "reactjs",
+    "typescript",
+    "boilerplate"
+  ],
+  "author": "Carlos Henrique",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chsjr1996/electron-reacjs-template/issues"
+  },
+  "homepage": "https://github.com/chsjr1996/electron-reacjs-template#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@types/electron-devtools-installer": "^2.2.0",
+    "@types/node": "12",
+    "@types/react": "^16.9.27",
+    "@types/react-dom": "^16.9.5",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.1.0",
+    "electron": "^8.2.0",
+    "electron-devtools-installer": "^2.2.4",
+    "html-webpack-plugin": "^4.0.3",
+    "ts-loader": "^6.2.2",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.8.3",
+    "wait-on": "^4.0.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
