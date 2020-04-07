@@ -1,5 +1,7 @@
 # Electron ReactJS template
 
+![electron-reactjs-template-cover](https://repository-images.githubusercontent.com/250954487/fa559280-786a-11ea-8aa5-997defa997f9)
+
 This is a electron template that use ReactJS for renderer process. It's only a simple template for allow you add more logic and packages for both browser and renderer process.
 
 ---
