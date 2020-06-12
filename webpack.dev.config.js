@@ -8,7 +8,7 @@ module.exports = {
     modules: ['node_modules', 'src/renderer']
   },
   entry: {
-    app: ['webpack/hot/dev-server', './src/renderer/index.tsx']
+    app: ['webpack/hot/dev-server', './src/renderer/Home.tsx']
   },
   output: {
     path: path.join(__dirname, 'dist'),
