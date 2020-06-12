@@ -1,9 +1,12 @@
+// Main libs
 import React from "react";
 import { Router, Route, Switch } from 'react-router-dom';
 
-import { Home } from '../pages/Home';
+// Pages
+import { Home } from '@Page/Home'
 
-import appHistory from "../utils/appHistory";
+// Utils
+import appHistory from "@Util/appHistory";
 
 export default function Routes(): JSX.Element {
   return (

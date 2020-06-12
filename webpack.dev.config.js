@@ -5,10 +5,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    modules: ['node_modules', 'src/renderer']
+    modules: ['node_modules', 'src/renderer'],
+    alias: {
+      '@Root': path.resolve(__dirname, 'src/renderer/'),
+      '@Page': path.resolve(__dirname, 'src/renderer/pages/'),
+      '@Component': path.resolve(__dirname, 'src/renderer/components/'),
+      '@Util': path.resolve(__dirname, 'src/renderer/utils/')
+    }
   },
   entry: {
-    app: ['webpack/hot/dev-server', './src/renderer/Home.tsx']
+    app: ['webpack/hot/dev-server', './src/renderer/index.tsx']
   },
   output: {
     path: path.join(__dirname, 'dist'),

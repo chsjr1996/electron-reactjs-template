@@ -14,7 +14,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": "./src/renderer/",
+    "paths": {
+      "@Root/*": ["*"],
+      "@Page/*": ["pages/*"],
+      "@Component/*": ["components/*"],
+      "@Util/*": ["utils/*"]
+    }
   },
   "include": ["src", "src/index.tsx"],
   "exclude": ["src/browser"]
