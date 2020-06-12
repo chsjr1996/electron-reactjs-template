@@ -25,7 +25,7 @@ class Main {
   /**
    * Electron dev environment
    */
-  private isDev: boolean = false;
+  private readonly isDev: boolean = false;
 
   /**
    * Run application
@@ -34,14 +34,14 @@ class Main {
     // app events
     app.on('ready', () => {
       if (this.isDev) {
-        this.installDevExtensions();
+        Main.installDevExtensions();
       }
 
       // The main window
       this.windows[win.main] = new MainWindow();
       this.windows[win.main].on(
         'closed',
-        () => (this.windows[win.main] = null)
+        (): void => (this.windows[win.main] = null)
       );
     });
 
@@ -55,7 +55,7 @@ class Main {
   /**
    * Install extensions for help development process
    */
-  private installDevExtensions() {
+  private static installDevExtensions() {
     require('./extensions').install();
   }
 }
