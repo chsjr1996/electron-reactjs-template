@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.(?:tsx|ts)$/,
         exclude: /(node_modules|vendor)/,
-        loaders: ['ts-loader']
+        use: ['ts-loader']
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
