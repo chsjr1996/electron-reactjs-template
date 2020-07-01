@@ -2,12 +2,9 @@
   "name": "electron-reactjs-template",
   "version": "0.0.1",
   "description": "Electron Electron app template with Typescript and ReactJS",
-  "main": "index.js",
-  "scripts": {
-    "dev": "concurrently --names 'webpack,electron:compile' --prefix name 'npm run dev:webpack' 'npm run dev:electron:compile'",
-    "dev:webpack": "webpack-dev-server --color --config ./webpack.dev.config.js",
-    "dev:electron:compile": "tsc -p tsconfig.browser.json && npm run dev:electron:run",
-    "dev:electron:run": "wait-on http://localhost:8080 && node --require 'dotenv/config' scripts/start-dev.js"
+  "author": {
+    "name": "Carlos H.",
+    "email": "chsjr1996@gmail.com"
   },
   "repository": {
     "type": "git",
@@ -19,12 +16,34 @@
     "typescript",
     "boilerplate"
   ],
-  "author": "Carlos Henrique",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/chsjr1996/electron-reacjs-template/issues"
   },
   "homepage": "https://github.com/chsjr1996/electron-reacjs-template#readme",
+  "main": "./build/browser/main.js",
+  "build": {
+    "files": [
+      "build/**/*"
+    ],
+    "appId": "org.electron.reactjs.template",
+    "linux": {
+      "target": [
+        "deb",
+        "pacman"
+      ]
+    }
+  },
+  "scripts": {
+    "clean:build": "rimraf build",
+    "clean:linux": "rimraf dist/electron-reactjs-template-linux-* dist/*.deb",
+    "electron:compile": "npm run clean:build && tsc -p tsconfig.browser.json",
+    "dev:webpack": "webpack-dev-server --color --config ./webpack.dev.config.js",
+    "dev:electron:run": "wait-on http://localhost:8080 && node scripts/start-dev.js",
+    "dev": "concurrently --names 'webpack,compile,run' --prefix name 'npm run dev:webpack' 'npm run electron:compile' 'npm run dev:electron:run'",
+    "prod:webpack": "webpack -p --color --config ./webpack.prod.config.js",
+    "build:linux": "npm run clean:linux && npm run electron:compile && npm run prod:webpack && electron-builder --linux"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "react": "^16.13.1",
@@ -43,9 +62,11 @@
     "babel-loader": "^8.1.0",
     "concurrently": "^5.1.0",
     "electron": "^9.0.3",
+    "electron-builder": "^22.7.0",
     "electron-devtools-installer": "^2.2.4",
     "eslint": "^6.8.0",
     "html-webpack-plugin": "^4.0.3",
+    "rimraf": "^3.0.2",
     "ts-loader": "^6.2.2",
     "tsc": "^1.20150623.0",
     "typescript": "^3.8.3",
