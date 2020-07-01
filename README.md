@@ -2,14 +2,24 @@
 
 ![electron-reactjs-template-cover](https://repository-images.githubusercontent.com/250954487/fa559280-786a-11ea-8aa5-997defa997f9)
 
-This is a electron template that use ReactJS for renderer process. It's only a simple template for allow you add more logic and packages for both browser and renderer process.
+This is an electron template that use ReactJS for renderer process. It's only a simple template for allow you to add more logic and packages for both browser and renderer process.
 
 ---
 
 ## Requirements
 
 - NodeJS > v13
-- yarn or npm
+- Npm
+
+---
+
+## Main technologies
+
+- Electron 9
+- ReactJS 16
+- React Router Dom 5
+- Typescript 3
+- And others...
 
 ---
 
@@ -18,21 +28,33 @@ This is a electron template that use ReactJS for renderer process. It's only a s
 Clone and install dependencies
 
 - `git clone https://github.com/chsjr1996/electron-reactjs-template.git`
-- `yarn` or `npm install`
+- `npm install`
 
 For compile all ReactJS files in a bundle package and Browser TS files for execute Electron use:
 
-- `yarn dev`
+- `npm run dev`
 
 This command execute concurrently the two below commands:
 
-- `yarn dev:webpack` and `yarn dev:electron:compile`
+- `npm run dev:webpack` and `npm run electron:compile`
 
-The `yarn dev:webpack` compile all ReactJS files and `yarn dev:electron:compile` all TS files in Browser directory for electron execution.
+The `npm run dev:webpack` compile all ReactJS files and `npm run electron:compile` all TS files in Browser directory for electron execution.
 
-> Note: The `yarn dev:electron:compile` after compile process run the `yarn dev:electron:run` command, this wait for webpack server (where ReactJS will run) and execute the **start-dev.js** script for open electron process.
+> Note: The `npm run dev:electron:run` command, this wait for webpack server (where ReactJS will run) and execute the **start-dev.js** script for open electron process.
 
-> Note: You can use only `yarn dev:webpack` process or only `yarn dev:electron:compile` or `yarn dev:electron:run`, but remember that the last command wait for webpack server and electron can't run without it
+> Note: You can use only `npm run dev:webpack` process or only `npm run electron:compile` or `npm run dev:electron:run`, but remember that the last command wait for webpack server and electron can't run without it
+
+---
+
+## Build
+
+For now, only linux build is available, and it's in .deb and .pacman format. If you want build, then use:
+
+- `npm run build:linux`
+
+This command will "compile" Electron (tsc), ReactJS (webpack) and execute **electron-builder** to generate linux packages.
+
+> TODO: Generate more Linux packages format, and when possible Windows and MacOS too.
 
 ---
 
