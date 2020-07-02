@@ -19,7 +19,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -36,7 +36,8 @@ module.exports = {
     noParse: [/html2canvas/]
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    port: 3000
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
